@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;   
 import com.javatpoint.beans.Emp;  
 import com.javatpoint.dao.EmpDao;  
+
 @Controller  
 public class EmpController {  
     @Autowired  
-    EmpDao dao;//will inject dao from xml file  
+    EmpDao dao;
       
     /*It displays a form to input data, here "command" is a reserved request attribute 
      *which is used to display object data into form 
