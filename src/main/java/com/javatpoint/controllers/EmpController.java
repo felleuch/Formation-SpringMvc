@@ -1,4 +1,5 @@
 package com.javatpoint.controllers;   
+import java.util.ArrayList;
 import java.util.List;  
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,19 @@ public class EmpController {
         List<Emp> list=dao.getEmployees();  
         m.addAttribute("list",list);
         return "viewemp";  
-    }  
+    } 
+    
+    
+    @RequestMapping("/filteremp")  
+    public String filteremp(Model m){  
+        List<Emp> list=dao.getFiltredEmployees();  
+        m.addAttribute("list",list);
+      
+        return "viewemp";  
+    } 
+    
+    
+    
     /* It displays object data into form for the given id.  
      * The @PathVariable puts URL data into variable.*/  
     @RequestMapping(value="/editemp/{id}")  

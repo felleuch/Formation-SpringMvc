@@ -40,5 +40,17 @@ public List<Emp> getEmployees(){
             return e;  
         }  
     });  
+}
+public List<Emp> getFiltredEmployees() {
+	return template.query("select * from Emp99  where salary > 1000 ",new RowMapper<Emp>(){  
+        public Emp mapRow(ResultSet rs, int row) throws SQLException {  
+            Emp e=new Emp();  
+            e.setId(rs.getInt(1));  
+            e.setName(rs.getString(2));  
+            e.setSalary(rs.getFloat(3));  
+            e.setDesignation(rs.getString(4));  
+            return e;  
+        }  
+    });
 }  
 }  
